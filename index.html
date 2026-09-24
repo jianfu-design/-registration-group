@@ -5,147 +5,168 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>文心國小 定期公務報表填報系統</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 強制整個網頁使用微軟正黑體 */
+        body {
+            font-family: "Microsoft JhengHei", "微軟正黑體", sans-serif !important;
+        }
+    </style>
     <script>
         function copyText(text) {
             navigator.clipboard.writeText(text).then(() => {
-                alert('已複製：' + text);
+                // 使用稍微溫和一點的提示框取代原生 alert (非必要，但體驗更好)
+                alert('✅ 已複製：' + text);
             });
         }
     </script>
 </head>
-<body class="bg-gray-50 p-4 font-sans md:p-8">
+<body class="bg-gray-100 p-4 md:p-8">
     <div class="max-w-4xl mx-auto space-y-6">
         
         <!-- 標題區塊 -->
-        <header class="bg-blue-600 text-white p-6 rounded-xl shadow-md text-center">
-            <h1 class="text-3xl font-bold tracking-wider">定期公務報表填報查詢</h1>
-            <p class="mt-2 text-blue-100">請各承辦單位協助於期限內上網填報，紙本核章完共３份請交給註冊組彙整。</p>
+        <header class="bg-blue-700 text-white p-6 rounded-xl shadow-lg text-center border-b-4 border-blue-900">
+            <h1 class="text-3xl font-bold tracking-widest">定期公務報表填報查詢</h1>
+            <p class="mt-2 text-blue-100 font-medium">請各承辦單位協助於期限內上網填報，紙本核章完共二份請交給註冊組彙整。</p>
         </header>
 
-        <!-- 網路填報作業注意事項 (新增區塊) -->
-        <section class="bg-yellow-50 border-l-4 border-yellow-500 p-5 rounded-r-xl shadow-sm">
-            <h2 class="text-xl font-bold text-yellow-800 mb-3 flex items-center">
-                <span class="mr-2">⚠️</span> 網路填報作業注意事項
+        <!-- 網路填報作業注意事項 -->
+        <section class="bg-yellow-50 border-l-8 border-yellow-500 p-6 rounded-r-xl shadow-md">
+            <h2 class="text-xl font-bold text-yellow-900 mb-4 flex items-center">
+                <span class="mr-2 text-2xl">⚠️</span> 網路填報作業注意事項
             </h2>
-            <div class="text-gray-800 space-y-3">
-                <div>
-                    <h3 class="font-bold text-gray-900">填表須知：</h3>
-                    <ul class="list-disc list-inside space-y-1 ml-2 mt-1 text-gray-700">
+            <div class="text-gray-800 space-y-4">
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-yellow-200">
+                    <h3 class="font-bold text-gray-900 text-lg border-b pb-2 mb-2">填表須知：</h3>
+                    <ul class="list-disc list-inside space-y-2 ml-2 mt-2 text-gray-700 font-medium">
                         <li>本項工作列入國民及學前教育署之「一般教育補助款」項目。</li>
                         <li>除【表4學生裸視視力】於 <strong>10月31日</strong> 前填報及審核外，其餘各表均請於 <strong>10月20日</strong> 前填報及審核完成。</li>
-                        <li class="text-red-600 font-bold">內部配合事項：因局端 10/13 就會第一次催辦，請大家在 10/06 前完成（10/07 將私下提醒）。</li>
+                        <li class="text-red-600 font-bold bg-red-50 p-2 rounded inline-block mt-2">❗內部配合事項：因局端 10/13 就會第一次催辦，請大家在 10/06 前完成（10/07 將私下提醒）。</li>
                     </ul>
                 </div>
                 
-                <div class="mt-4 p-4 bg-white rounded-lg border border-yellow-200 shadow-sm">
-                    <p class="font-bold text-gray-800 flex items-center">
-                        <span class="mr-2">📁</span> 局端講習資料
+                <div class="p-4 bg-white rounded-lg border border-yellow-200 shadow-sm">
+                    <p class="font-bold text-gray-900 flex items-center text-lg">
+                        <span class="mr-2 text-xl">📁</span> 局端講習資料
                     </p>
-                    <p class="text-sm text-gray-600 mt-1 mb-2">路徑：教育局首頁 / 科室業務 / 會計室 / 公務統計 / 國中小(含補校)定期公務統計報表網路填報 / 115講習資料115.9(共4個檔案)</p>
-                    <a href="https://www.tc.edu.tw/page/34bcf371-ca96-47bf-96c5-c9761ba062bd" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline text-sm break-all font-medium transition-colors">
-                        https://www.tc.edu.tw/page/34bcf371-ca96-47bf-96c5-c9761ba062bd
+                    <p class="text-sm text-gray-600 mt-2 mb-2 font-medium bg-gray-50 p-2 rounded border border-gray-100">路徑：教育局首頁 / 科室業務 / 會計室 / 公務統計 / 國中小(含補校)定期公務統計報表網路填報 / 115講習資料115.9(共4個檔案)</p>
+                    <a href="https://www.tc.edu.tw/page/34bcf371-ca96-47bf-96c5-c9761ba062bd" target="_blank" class="inline-flex items-center text-blue-700 hover:text-blue-900 hover:underline font-bold transition-colors mt-1 break-all">
+                        <span class="mr-1">🔗</span> 點此前往教育局下載頁面
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- ▼▼▼ 這裡是你未來可以隨時新增文字的區域 ▼▼▼ -->
-        <section class="bg-white p-5 rounded-xl shadow-sm border border-gray-200">
-            <h2 class="text-lg font-bold text-gray-800 mb-2 border-b pb-2 flex items-center">
-                <span class="mr-2">📢</span> 註冊組最新公告
+        <!-- 🌟 強化的系統登入資訊區塊 🌟 -->
+        <section class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl shadow-md border border-blue-200">
+             <h2 class="text-xl font-bold text-blue-900 mb-4 flex items-center border-b border-blue-200 pb-2">
+                <span class="mr-2 text-2xl">💻</span> 填報系統登入資訊
             </h2>
-            <!-- 若要新增文字，請直接修改或複製下方的 <p> 標籤 -->
-            <div class="text-gray-700 space-y-2 mt-3">
-                <p>辛苦各位老師了，若在填報系統遇到任何帳號密碼問題，請隨時通知註冊組處理。</p>
-<!-- 👇 圖片貼在這裡 👇 -->
-<img src="20260924-1.jpg" alt="公告圖片1" class="w-full max-w-2xl mx-auto rounded-lg shadow-sm mt-4">
-<img src="20260924-2.jpg" alt="公告圖片2" class="w-full max-w-2xl mx-auto rounded-lg shadow-sm mt-4">
-<img src="20260924-3.jpg" alt="公告圖片3" class="w-full max-w-2xl mx-auto rounded-lg shadow-sm mt-4">
-<!-- 👆 圖片貼在這裡 👆 -->
-                <!-- 範例：若要多加一行，可以把這行註解解開並修改文字內容
-                <p class="text-blue-600 font-semibold">2026/10/01 更新：目前系統連線較慢，請大家耐心等候。</p>
-                -->
+            
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- 網址區 -->
+                <div class="flex-1 w-full bg-white p-4 rounded-lg shadow-sm border border-blue-100 relative group">
+                    <p class="text-sm text-gray-500 font-bold mb-1 uppercase tracking-wider">System URL</p>
+                    <a href="https://jcstats.moe.gov.tw/school/SchoolIndex.aspx" target="_blank" class="text-blue-700 hover:text-blue-900 hover:underline font-bold text-lg break-all flex items-center group-hover:scale-[1.01] transition-transform">
+                        https://jcstats.moe.gov.tw/school/SchoolIndex.aspx
+                    </a>
+                    <div class="absolute right-3 top-3 text-gray-300 group-hover:text-blue-500 transition-colors">↗</div>
+                </div>
+
+                <!-- 帳號密碼複製區 -->
+                <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                    <button onclick="copyText('193647C')" class="flex flex-col items-center justify-center bg-white hover:bg-gray-50 text-gray-800 py-3 px-6 rounded-lg shadow-sm transition-all border border-gray-200 hover:border-blue-400 hover:shadow-md group">
+                        <span class="text-xs text-gray-500 font-bold mb-1">公務帳號</span>
+                        <span class="font-bold text-lg group-hover:text-blue-600">193647C <span class="text-sm opacity-50 ml-1">📋</span></span>
+                    </button>
+                    
+                    <button onclick="copyText('Wxes193647@')" class="flex flex-col items-center justify-center bg-white hover:bg-gray-50 text-gray-800 py-3 px-6 rounded-lg shadow-sm transition-all border border-gray-200 hover:border-blue-400 hover:shadow-md group">
+                        <span class="text-xs text-gray-500 font-bold mb-1">公務密碼</span>
+                        <span class="font-bold text-lg group-hover:text-blue-600">Wxes193647@ <span class="text-sm opacity-50 ml-1">📋</span></span>
+                    </button>
+                </div>
             </div>
         </section>
-        <!-- ▲▲▲ 自訂文字區域結束 ▲▲▲ -->
 
-        <!-- 系統登入資訊 -->
-        <section class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="flex-1 w-full">
-                <p class="text-sm text-gray-500 mb-1">填報系統網址</p>
-                <a href="https://jcstats.moe.gov.tw/school/SchoolIndex.aspx" target="_blank" class="text-blue-600 hover:underline font-medium break-all">
-                    https://jcstats.moe.gov.tw/school/SchoolIndex.aspx
-                </a>
-            </div>
-            <div class="flex flex-row gap-3 w-full md:w-auto">
-                <button onclick="copyText('193647C')" class="flex-1 md:flex-none bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded transition-colors text-sm border border-gray-300">
-                    複製帳號
-                </button>
-                <button onclick="copyText('Wxes193647@')" class="flex-1 md:flex-none bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded transition-colors text-sm border border-gray-300">
-                    複製密碼
-                </button>
+        <!-- 註冊組最新公告 -->
+        <section class="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+            <h2 class="text-xl font-bold text-gray-900 mb-4 border-b-2 border-gray-100 pb-2 flex items-center">
+                <span class="mr-2 text-2xl">📢</span> 註冊組最新公告
+            </h2>
+            <div class="text-gray-800 space-y-3 font-medium text-lg leading-relaxed">
+                <p>辛苦各位老師了，若在填報系統遇到任何帳號密碼問題，請隨時通知註冊組處理。</p>
+                
+                <!-- 👇 圖片顯示區塊 👇 -->
+                <img src="20260924-1.jpg" alt="公告圖片1" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mt-6 border border-gray-100">
+                <img src="20260924-2.jpg" alt="公告圖片2" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mt-6 border border-gray-100">
+                <img src="20260924-3.jpg" alt="公告圖片3" class="w-full max-w-2xl mx-auto rounded-lg shadow-md mt-6 border border-gray-100">
+                <!-- 👆 圖片顯示區塊 👆 -->
+                
             </div>
         </section>
 
         <!-- 各處室填報任務清單 -->
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             <!-- 註冊組 -->
-            <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-blue-500">
-                <h3 class="font-bold text-lg text-blue-700 mb-3">註冊組</h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
-                    <li class="flex items-start"><span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-xs mr-2 shrink-0">表一</span> 學校概況表</li>
-                    <li class="flex items-start"><span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-xs mr-2 shrink-0">表二</span> 畢業生數及在學學生年齡分組</li>
-                    <li class="flex items-start"><span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-xs mr-2 shrink-0">表三</span> 班級數</li>
-                    <li class="flex items-start"><span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-xs mr-2 shrink-0">表五</span> 原住民生統計</li>
-                    <li class="flex items-start"><span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-xs mr-2 shrink-0">表六</span> 僑生及港澳學生統計</li>
-                    <li class="flex items-start"><span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-xs mr-2 shrink-0">表十二</span> 新住民子女就學統計</li>
-                    <li class="flex items-start"><span class="bg-blue-100 text-blue-800 px-2 py-0.5 rounded text-xs mr-2 shrink-0">表十二A</span> 大陸地區(不含港澳)學生就學統計</li>
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-8 border-blue-500 hover:shadow-lg transition-shadow">
+                <h3 class="font-bold text-xl text-blue-800 mb-4 border-b pb-2">註冊組</h3>
+                <ul class="space-y-3 text-gray-800 font-medium">
+                    <li class="flex items-start"><span class="bg-blue-100 text-blue-800 px-2.5 py-1 rounded-md text-sm font-bold mr-3 shadow-sm shrink-0">表一</span> 學校概況表</li>
+                    <li class="flex items-start"><span class="bg-blue-100 text-blue-800 px-2.5 py-1 rounded-md text-sm font-bold mr-3 shadow-sm shrink-0">表二</span> 畢業生數及在學學生年齡分組</li>
+                    <li class="flex items-start"><span class="bg-blue-100 text-blue-800 px-2.5 py-1 rounded-md text-sm font-bold mr-3 shadow-sm shrink-0">表三</span> 班級數</li>
+                    <li class="flex items-start"><span class="bg-blue-100 text-blue-800 px-2.5 py-1 rounded-md text-sm font-bold mr-3 shadow-sm shrink-0">表五</span> 原住民生統計</li>
+                    <li class="flex items-start"><span class="bg-blue-100 text-blue-800 px-2.5 py-1 rounded-md text-sm font-bold mr-3 shadow-sm shrink-0">表六</span> 僑生及港澳學生統計</li>
+                    <li class="flex items-start"><span class="bg-blue-100 text-blue-800 px-2.5 py-1 rounded-md text-sm font-bold mr-3 shadow-sm shrink-0">表十二</span> 新住民子女就學統計</li>
+                    <li class="flex items-start"><span class="bg-blue-100 text-blue-800 px-2.5 py-1 rounded-md text-sm font-bold mr-3 shadow-sm shrink-0">表十二A</span> 大陸地區(不含港澳)學生就學統計</li>
                 </ul>
             </div>
 
             <!-- 人事室 -->
-            <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-green-500">
-                <h3 class="font-bold text-lg text-green-700 mb-3">人事室</h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
-                    <li class="flex items-start"><span class="bg-green-100 text-green-800 px-2 py-0.5 rounded text-xs mr-2 shrink-0">表五A</span> 原住民教師統計</li>
-                    <li class="flex items-start"><span class="bg-green-100 text-green-800 px-2 py-0.5 rounded text-xs mr-2 shrink-0">表七</span> 教師資料(含校長/專任輔導,不含幼兒園)</li>
-                    <li class="flex items-start"><span class="bg-green-100 text-green-800 px-2 py-0.5 rounded text-xs mr-2 shrink-0">表八</span> 職員工友資料</li>
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-8 border-green-500 hover:shadow-lg transition-shadow">
+                <h3 class="font-bold text-xl text-green-800 mb-4 border-b pb-2">人事室</h3>
+                <ul class="space-y-3 text-gray-800 font-medium">
+                    <li class="flex items-start"><span class="bg-green-100 text-green-800 px-2.5 py-1 rounded-md text-sm font-bold mr-3 shadow-sm shrink-0">表五A</span> 原住民教師統計</li>
+                    <li class="flex items-start"><span class="bg-green-100 text-green-800 px-2.5 py-1 rounded-md text-sm font-bold mr-3 shadow-sm shrink-0">表七</span> 教師資料(含校長/專任輔導,不含幼兒園)</li>
+                    <li class="flex items-start"><span class="bg-green-100 text-green-800 px-2.5 py-1 rounded-md text-sm font-bold mr-3 shadow-sm shrink-0">表八</span> 職員工友資料</li>
                 </ul>
             </div>
 
             <!-- 輔導室 -->
-            <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-purple-500">
-                <h3 class="font-bold text-lg text-purple-700 mb-3">輔導室</h3>
-                <ul class="space-y-2 text-gray-700 text-sm">
-                    <li class="flex items-start"><span class="bg-purple-100 text-purple-800 px-2 py-0.5 rounded text-xs mr-2 shrink-0">表十三</span> 認輔教師及受輔學生統計</li>
-                    <li class="flex items-start"><span class="bg-purple-100 text-purple-800 px-2 py-0.5 rounded text-xs mr-2 shrink-0">表十六B</span> 學生懷孕(含育有子女者)</li>
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-8 border-purple-500 hover:shadow-lg transition-shadow">
+                <h3 class="font-bold text-xl text-purple-800 mb-4 border-b pb-2">輔導室</h3>
+                <ul class="space-y-3 text-gray-800 font-medium">
+                    <li class="flex items-start"><span class="bg-purple-100 text-purple-800 px-2.5 py-1 rounded-md text-sm font-bold mr-3 shadow-sm shrink-0">表十三</span> 認輔教師及受輔學生統計</li>
+                    <li class="flex items-start"><span class="bg-purple-100 text-purple-800 px-2.5 py-1 rounded-md text-sm font-bold mr-3 shadow-sm shrink-0">表十六B</span> 學生懷孕(含育有子女者)</li>
                 </ul>
             </div>
 
             <!-- 其他處室 (健康中心、設備、教學) -->
-            <div class="bg-white p-5 rounded-xl shadow-sm border-t-4 border-orange-500 space-y-4">
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-8 border-orange-500 space-y-6 hover:shadow-lg transition-shadow">
                 <div>
-                    <h3 class="font-bold text-lg text-orange-700 mb-2">健康中心</h3>
-                    <ul class="text-gray-700 text-sm">
-                        <li class="flex items-start"><span class="bg-orange-100 text-orange-800 px-2 py-0.5 rounded text-xs mr-2 shrink-0">表四</span> 學生裸視視力 <span class="text-red-500 ml-1">(10/31前)</span></li>
+                    <h3 class="font-bold text-xl text-orange-800 mb-3 border-b pb-1">健康中心</h3>
+                    <ul class="text-gray-800 font-medium">
+                        <li class="flex items-start"><span class="bg-orange-100 text-orange-800 px-2.5 py-1 rounded-md text-sm font-bold mr-3 shadow-sm shrink-0">表四</span> 學生裸視視力 <span class="text-red-600 font-bold bg-red-50 px-2 rounded ml-2">(10/31前)</span></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="font-bold text-lg text-orange-700 mb-2">設備組</h3>
-                    <ul class="text-gray-700 text-sm">
-                        <li class="flex items-start"><span class="bg-orange-100 text-orange-800 px-2 py-0.5 rounded text-xs mr-2 shrink-0">表十</span> 圖書館統計</li>
+                    <h3 class="font-bold text-xl text-orange-800 mb-3 border-b pb-1">設備組</h3>
+                    <ul class="text-gray-800 font-medium">
+                        <li class="flex items-start"><span class="bg-orange-100 text-orange-800 px-2.5 py-1 rounded-md text-sm font-bold mr-3 shadow-sm shrink-0">表十</span> 圖書館統計</li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="font-bold text-lg text-orange-700 mb-2">教學組</h3>
-                    <ul class="text-gray-700 text-sm">
-                        <li class="flex items-start"><span class="bg-orange-100 text-orange-800 px-2 py-0.5 rounded text-xs mr-2 shrink-0">表十五</span> 成人基本教育研習班統計</li>
+                    <h3 class="font-bold text-xl text-orange-800 mb-3 border-b pb-1">教學組</h3>
+                    <ul class="text-gray-800 font-medium">
+                        <li class="flex items-start"><span class="bg-orange-100 text-orange-800 px-2.5 py-1 rounded-md text-sm font-bold mr-3 shadow-sm shrink-0">表十五</span> 成人基本教育研習班統計</li>
                     </ul>
                 </div>
             </div>
 
         </section>
+        
+        <footer class="text-center text-gray-500 text-sm mt-8 pb-4">
+            文心國小 註冊組製
+        </footer>
     </div>
 </body>
 </html>
